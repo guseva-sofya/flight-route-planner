@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "flight-route-planner"
+version = "0.1.0"
+description = ""
+authors = ["guseva-sofya <guseva.sofya.p@gmail.com>"]
+readme = "README.md"
+packages = [{include = "flight_route_planner"}]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+pandas = "^2.0.1"
+requests = "^2.30.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
