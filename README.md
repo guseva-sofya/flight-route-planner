@@ -29,3 +29,19 @@ To add a new package:
 poetry add pandas
 ```
 
+## Static analysis:
+
+To run static type/annotation analysis:
+```
+mypy .
+```
+
+To run linter statis analysis:
+```
+pylint flight_route_planner tests 
+```
+
+Run the tests:
+```
+pytest tests
+```
