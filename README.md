@@ -45,3 +45,13 @@ Run the tests:
 ```
 pytest tests
 ```
+
+To update conda, run Anaconda Powershell Prompt from admnistrator.
+ ```
+ conda update --all
+ ```
+ This will update conda and Python in its current package (3.8 -> to the latest version in 3.8).
+ To update python in conda completely you need to run: 
+ ```
+ conda install python=3.10
+ ```
