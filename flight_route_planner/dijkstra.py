@@ -1,5 +1,5 @@
 from flight_route_planner import graphs
-from typing import List, Dict, Set
+from typing import List, Dict, Set, Tuple
 from dataclasses import dataclass
 
 
@@ -24,46 +24,34 @@ def find_shortest_path(
     )
 
     while len(unvisited_vertices) > 0:
-        current_vertex = find_unvisited_vertex_closest_to_start(
+        # find unvisited vertex with shortest distance to the start vertex
+        current_vertex, current_distance = find_unvisited_vertex_closest_to_start(
             unvisited_vertices, dijkstra_path_table
         )
-        unvisited_vertices.remove(current_vertex)
 
         # find unvisited neighbors of current vertex
-        unvisited_neighbors = [
-            neighbor
-            for neighbor in graph.find_neighbors(current_vertex)
-            if neighbor in unvisited_vertices
-        ]
+        unvisited_neighbors = find_unvisited_neighbors(
+            graph, current_vertex, unvisited_vertices
+        )
 
         # calculate distance of each unvisted neighbor from the start
         for neighbor in unvisited_neighbors:
-            current_vertex_distance = dijkstra_path_table[
-                current_vertex
-            ].shortest_distance
-
             distance_to_neighbor = graph.edge_weight(current_vertex, neighbor)
+            new_shortest_distance_to_neighbor = current_distance + distance_to_neighbor
 
-            new_shortest_distance_to_neighbor = (
-                current_vertex_distance + distance_to_neighbor
+            # if the known shortest distance to neighbor is less than new distance,
+            # don't update the neighbor
+            if (
+                neighbor in dijkstra_path_table
+                and dijkstra_path_table[neighbor].shortest_distance
+                <= new_shortest_distance_to_neighbor
+            ):
+                continue
+
+            # otherwise update the table with new shortest distance to the neighbor from the start vertex
+            dijkstra_path_table[neighbor] = VertexPath(
+                new_shortest_distance_to_neighbor, previous_vertex=current_vertex
             )
-
-            # if the calculated distance of neighbor is less than known distance,
-            # update the shortest distance. if neighbor is not in the table, adding it
-            if neighbor in dijkstra_path_table:
-                shortest_distance_to_neighbor = dijkstra_path_table[
-                    neighbor
-                ].shortest_distance
-
-                if new_shortest_distance_to_neighbor < shortest_distance_to_neighbor:
-                    dijkstra_path_table[neighbor] = VertexPath(
-                        new_shortest_distance_to_neighbor,
-                        previous_vertex=current_vertex,
-                    )
-            else:
-                dijkstra_path_table[neighbor] = VertexPath(
-                    new_shortest_distance_to_neighbor, previous_vertex=current_vertex
-                )
 
     return reconstruct_shortest_path(dijkstra_path_table, start_vertex, end_vertex)
 
@@ -71,7 +59,7 @@ def find_shortest_path(
 def find_unvisited_vertex_closest_to_start(
     unvisited_vertices: Set[graphs.Vertex],
     dijkstra_path_table: Dict[graphs.Vertex, VertexPath],
-) -> graphs.Vertex:
+) -> Tuple[graphs.Vertex, int]:
     # sort vertices by shortest distance in dictionary
     sorted_vertices = sorted(
         dijkstra_path_table, key=lambda k: dijkstra_path_table[k].shortest_distance
@@ -79,9 +67,20 @@ def find_unvisited_vertex_closest_to_start(
 
     for vertex in sorted_vertices:
         if vertex in unvisited_vertices:
-            return vertex
+            unvisited_vertices.remove(vertex)
+            return vertex, dijkstra_path_table[vertex].shortest_distance
 
     raise Exception("Failed to find closest vertex.")
+
+
+def find_unvisited_neighbors(
+    graph: graphs.Graph, vertex: graphs.Vertex, unvisited_vertices: Set[graphs.Vertex]
+) -> List[graphs.Vertex]:
+    return [
+        neighbor
+        for neighbor in graph.find_neighbors(vertex)
+        if neighbor in unvisited_vertices
+    ]
 
 
 def reconstruct_shortest_path(
