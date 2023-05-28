@@ -29,7 +29,7 @@ class Graph:
         self._adjacency_matrix[vertex1][vertex2] = weight
         self._adjacency_matrix[vertex2][vertex1] = weight
 
-    def find_neighbors(self, vertex: int) -> List:
-        matrix_row = self._adjacency_matrix[vertex][:]
+    def find_neighbors(self, vertex: int) -> List[int]:
+        matrix_row = self._adjacency_matrix[vertex]
         neighbors = [index for index, value in enumerate(matrix_row) if value != -1]
         return neighbors
