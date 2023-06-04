@@ -1,12 +1,21 @@
-from flight_route_planner import graphs
 from typing import List, Dict, Set, Tuple
 from dataclasses import dataclass
+from flight_route_planner import graphs
 
 
 # @dataclass is an annotation that automatically generates
 # __init__, __repr__ and __eq__ methods for VertexPath
 @dataclass
 class VertexPath:
+    """Data structure that is used to save information about current vertex
+    to implement dijkstra algorithm.
+
+    Attributes:
+        shortest_distance: An integer representing the shortest distance from
+        the start vertex to the current vertex.
+        previous_vertex: An integer representing previous vertex.
+    """
+
     shortest_distance: int
     previous_vertex: graphs.Vertex
 
@@ -14,6 +23,19 @@ class VertexPath:
 def find_shortest_path(
     graph: graphs.Graph, start_vertex: graphs.Vertex, end_vertex: graphs.Vertex
 ) -> List[graphs.Vertex]:
+    """Implements dijkstra algorithm that finds the shortest path between two
+    vertices in a graph.
+
+    Args:
+        graph: An instance of a class Graph in a form of a table of integers.
+        start_vertex: An integer that represents the start vertex.
+        end_vertex: An integer that represents the end vertex.
+
+    Returns:
+        start_to_end_path: A list of integers representing a list of vertices or
+        a shortest path from the start vertex to the end vertex.
+    """
+
     dijkstra_path_table: Dict[graphs.Vertex, VertexPath] = {}
     # using set instead of list for O(1=const) look-up complexity
     # (list is O(n=number of elements)); set has no duplicate elements
@@ -24,17 +46,15 @@ def find_shortest_path(
     )
 
     while len(unvisited_vertices) > 0:
-        # find unvisited vertex with shortest distance to the start vertex
         current_vertex, current_distance = find_unvisited_vertex_closest_to_start(
             unvisited_vertices, dijkstra_path_table
         )
 
-        # find unvisited neighbors of current vertex
         unvisited_neighbors = find_unvisited_neighbors(
             graph, current_vertex, unvisited_vertices
         )
 
-        # calculate distance of each unvisted neighbor from the start
+        # calculate distance of each unvisited neighbor from the start
         for neighbor in unvisited_neighbors:
             distance_to_neighbor = graph.edge_weight(current_vertex, neighbor)
             new_shortest_distance_to_neighbor = current_distance + distance_to_neighbor
@@ -48,7 +68,8 @@ def find_shortest_path(
             ):
                 continue
 
-            # otherwise update the table with new shortest distance to the neighbor from the start vertex
+            # otherwise update the table with new shortest distance
+            # to the neighbor from the start vertex
             dijkstra_path_table[neighbor] = VertexPath(
                 new_shortest_distance_to_neighbor, previous_vertex=current_vertex
             )
@@ -60,6 +81,21 @@ def find_unvisited_vertex_closest_to_start(
     unvisited_vertices: Set[graphs.Vertex],
     dijkstra_path_table: Dict[graphs.Vertex, VertexPath],
 ) -> Tuple[graphs.Vertex, int]:
+    """Finds unvisited vertex with shortest distance to the start vertex.
+
+    Args:
+        unvisited_vertices:  A set of unvisited vertices initially filled with
+        all vertices.
+        dijkstra_path_table: A dictionary includes vertex (integer) as its key
+        and data structure VertexPath described above as its value.
+
+    Returns:
+        A tuple consists of found unvisited vertex (integer) with shortest
+        distance to the start vertex and its shortest distance.
+
+    Raises:
+        AssertionError
+    """
     # sort vertices by shortest distance in dictionary
     sorted_vertices = sorted(
         dijkstra_path_table, key=lambda k: dijkstra_path_table[k].shortest_distance
@@ -70,7 +106,7 @@ def find_unvisited_vertex_closest_to_start(
             unvisited_vertices.remove(vertex)
             return vertex, dijkstra_path_table[vertex].shortest_distance
 
-    raise Exception("Failed to find closest vertex.")
+    raise AssertionError("Failed to find closest vertex.")
 
 
 def find_unvisited_neighbors(
@@ -97,6 +133,6 @@ def reconstruct_shortest_path(
 
         end_to_start_path.append(previous_vertex)
 
-    end_to_start_path.reverse()
+    start_to_end_path = end_to_start_path[::-1]
 
-    return end_to_start_path
+    return start_to_end_path
