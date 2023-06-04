@@ -14,7 +14,7 @@ class Graph:
         Initially filled with "-1" indicating no relationship between vertices.
     """
 
-    _adjacency_matrix: List[List[int]]
+    _adjacency_matrix: List[List[float]]
 
     def __init__(self, num_vertices: int):
         """Initializes the instance based on the number of vertices defined by user.
@@ -33,7 +33,7 @@ class Graph:
     def vertices(self) -> List[Vertex]:
         return list(range(self.num_vertices()))
 
-    def add_edge(self, vertex1: Vertex, vertex2: Vertex, weight: int) -> None:
+    def add_edge(self, vertex1: Vertex, vertex2: Vertex, weight: float) -> None:
         """Adds edge weights into adjacency matrix.
 
         Args:
@@ -57,7 +57,7 @@ class Graph:
         self._adjacency_matrix[vertex1][vertex2] = weight
         self._adjacency_matrix[vertex2][vertex1] = weight
 
-    def edge_weight(self, vertex1: Vertex, vertex2: Vertex) -> int:
+    def edge_weight(self, vertex1: Vertex, vertex2: Vertex) -> float:
         weight = self._adjacency_matrix[vertex1][vertex2]
         return weight
 

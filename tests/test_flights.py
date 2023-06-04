@@ -1,5 +1,4 @@
-from flight_route_planner import flights, graphs, dijkstra
-from tests import test_graph
+from flight_route_planner import flights
 
 
 def test_find_shortest_flight_route() -> None:
@@ -15,7 +14,9 @@ def test_find_shortest_flight_route() -> None:
         flights.Flight("FRA", "CDG", 1),
     ]
 
-    fastest_route = flights.find_fastest_flight_route(airports, scheduled_flights)
+    fastest_route = flights.find_fastest_flight_route(
+        airports, scheduled_flights, "LHR", "CDG"
+    )
 
     assert ["LHR", "FRA", "CDG"] == fastest_route.airport_codes
     assert 2.5 == fastest_route.total_duration_in_hours

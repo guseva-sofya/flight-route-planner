@@ -21,7 +21,7 @@ def test_get_all_vertices() -> None:
 def test_get_edge_weight_between_vertices() -> None:
     graph: graphs.Graph = create_test_graph()
 
-    weight: int = graph.edge_weight(vertex1=0, vertex2=1)
+    weight: float = graph.edge_weight(vertex1=0, vertex2=1)
 
     assert 7 == weight
 
@@ -29,9 +29,9 @@ def test_get_edge_weight_between_vertices() -> None:
 def create_test_graph() -> graphs.Graph:
     graph: graphs.Graph = graphs.Graph(num_vertices=4)
 
-    graph.add_edge(vertex1=0, vertex2=1, weight=7)
-    graph.add_edge(vertex1=0, vertex2=2, weight=1)
-    graph.add_edge(vertex1=1, vertex2=3, weight=3)
-    graph.add_edge(vertex1=2, vertex2=3, weight=2)
+    graph.add_edge(vertex1=0, vertex2=1, weight=7.0)
+    graph.add_edge(vertex1=0, vertex2=2, weight=1.0)
+    graph.add_edge(vertex1=1, vertex2=3, weight=3.0)
+    graph.add_edge(vertex1=2, vertex2=3, weight=2.0)
 
     return graph

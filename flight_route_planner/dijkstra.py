@@ -16,7 +16,7 @@ class VertexPath:
         previous_vertex: An integer representing previous vertex.
     """
 
-    shortest_distance: int
+    shortest_distance: float
     previous_vertex: graphs.Vertex
 
 
@@ -80,7 +80,7 @@ def find_shortest_path(
 def find_unvisited_vertex_closest_to_start(
     unvisited_vertices: Set[graphs.Vertex],
     dijkstra_path_table: Dict[graphs.Vertex, VertexPath],
-) -> Tuple[graphs.Vertex, int]:
+) -> Tuple[graphs.Vertex, float]:
     """Finds unvisited vertex with shortest distance to the start vertex.
 
     Args:
