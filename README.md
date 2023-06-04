@@ -55,3 +55,8 @@ To update conda, run Anaconda Powershell Prompt from admnistrator.
  ```
  conda install python=3.10
  ```
+
+ To run all static checks and unit tests in one go:
+ ```sh
+./run_checks.sh
+ ```
