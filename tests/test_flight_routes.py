@@ -10,7 +10,7 @@ def test_find_shortest_flight_route() -> None:
         flight_routes.Airport("FCO", "Rome-Fiumicino Airport"),
     ]
 
-    scheduled_flights = [
+    flights = [
         flight_routes.Flight("LHR", "CDG", 3),
         flight_routes.Flight("LHR", "FRA", 2),
         flight_routes.Flight("FRA", "CDG", 1),
@@ -19,7 +19,7 @@ def test_find_shortest_flight_route() -> None:
     ]
 
     fastest_route = flight_routes.find_fastest_flight_route(
-        airports, scheduled_flights, "LHR", "FCO"
+        airports, flights, "LHR", "FCO"
     )
 
     assert ["LHR", "FRA", "FCO"] == fastest_route.airport_codes
