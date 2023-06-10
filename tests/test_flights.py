@@ -6,27 +6,29 @@ def test_find_shortest_flight_route() -> None:
         flights.Airport("LHR", "London Heathrow Airport"),
         flights.Airport("CDG", "Paris Charles de Gaulle Airport"),
         flights.Airport("FRA", "Frankfurt Airport"),
+        flights.Airport("FCO", "Rome-Fiumicino Airport"),
     ]
 
     scheduled_flights = [
         flights.Flight("LHR", "CDG", 3),
-        flights.Flight("LHR", "FRA", 1.5),
+        flights.Flight("LHR", "FRA", 2),
         flights.Flight("FRA", "CDG", 1),
+        flights.Flight("FRA", "FCO", 1),
+        flights.Flight("CDG", "FCO", 2),
     ]
 
     fastest_route = flights.find_fastest_flight_route(
-        airports, scheduled_flights, "LHR", "CDG"
+        airports, scheduled_flights, "LHR", "FCO"
     )
 
-    assert ["LHR", "FRA", "CDG"] == fastest_route.airport_codes
-    assert 2.5 == fastest_route.total_duration_in_hours
+    assert ["LHR", "FRA", "FCO"] == fastest_route.airport_codes
+    assert 3.0 == fastest_route.total_duration_in_hours
 
 
 def test_enumerate_airports() -> None:
     airports = [
         flights.Airport("LHR", "London Heathrow Airport"),
         flights.Airport("CDG", "Paris Charles de Gaulle Airport"),
-        flights.Airport("FRA", "Frankfurt Airport"),
         flights.Airport("FRA", "Frankfurt Airport"),
     ]
 

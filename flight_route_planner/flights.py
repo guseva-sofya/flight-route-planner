@@ -50,7 +50,9 @@ def find_fastest_flight_route(
         vertices_to_airports[vertex] for vertex in start_to_end_path
     ]
 
-    return Route(airport_codes_of_fastest_route, total_duration_in_hours=0)
+    total_duration_in_hours = route_total_duration_in_hours(graph, start_to_end_path)
+
+    return Route(airport_codes_of_fastest_route, total_duration_in_hours)
 
 
 def enumerate_airports(airports: List[Airport]) -> Dict[AirportCode, graphs.Vertex]:
@@ -71,3 +73,19 @@ def reverse_airport_dictionary(
         vertex: airport_code for airport_code, vertex in airports_to_vertices.items()
     }
     return vertices_to_airports
+
+
+def route_total_duration_in_hours(
+    graph: graphs.Graph, start_to_end_path: List[graphs.Vertex]
+) -> float:
+    length_vertex_list = len(start_to_end_path)
+    total_duration_in_hours = 0
+
+    for index in range(length_vertex_list - 1):
+        vertex1 = start_to_end_path[index]
+        vertex2 = start_to_end_path[index + 1]
+
+        duration_in_hours = graph.edge_weight(vertex1, vertex2)
+        total_duration_in_hours = total_duration_in_hours + duration_in_hours
+
+    return total_duration_in_hours
