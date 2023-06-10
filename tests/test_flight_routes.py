@@ -1,4 +1,3 @@
-import json
 from flight_route_planner import flight_routes
 
 

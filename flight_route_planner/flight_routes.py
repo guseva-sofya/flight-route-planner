@@ -31,8 +31,7 @@ def find_fastest_flight_route(
     destination_airport: AirportCode,
 ) -> Route:
     airports_to_vertices = enumerate_airports(airports)
-    num_airports = len(airports_to_vertices)
-    graph: graphs.Graph = graphs.Graph(num_vertices=num_airports)
+    graph: graphs.Graph = graphs.Graph(num_vertices=len(airports_to_vertices))
 
     for flight in scheduled_flights:
         vertex1 = airports_to_vertices[flight.departure]
@@ -79,7 +78,7 @@ def route_total_duration_in_hours(
     graph: graphs.Graph, start_to_end_path: List[graphs.Vertex]
 ) -> float:
     length_vertex_list = len(start_to_end_path)
-    total_duration_in_hours = 0
+    total_duration_in_hours = 0.0
 
     for index in range(length_vertex_list - 1):
         vertex1 = start_to_end_path[index]
