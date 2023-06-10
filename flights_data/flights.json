@@ -1,0 +1,232 @@
+[
+  {
+    "departure": "LAX",
+    "destination": "JFK",
+    "duration_in_hours": 5.5
+  },
+  {
+    "departure": "LAX",
+    "destination": "LHR",
+    "duration_in_hours": 10
+  },
+  {
+    "departure": "JFK",
+    "destination": "CDG",
+    "duration_in_hours": 7
+  },
+  {
+    "departure": "JFK",
+    "destination": "SYD",
+    "duration_in_hours": 14.5
+  },
+  {
+    "departure": "LHR",
+    "destination": "HND",
+    "duration_in_hours": 11
+  },
+  {
+    "departure": "LHR",
+    "destination": "FRA",
+    "duration_in_hours": 1.5
+  },
+  {
+    "departure": "CDG",
+    "destination": "AMS",
+    "duration_in_hours": 1
+  },
+  {
+    "departure": "CDG",
+    "destination": "DXB",
+    "duration_in_hours": 6
+  },
+  {
+    "departure": "SYD",
+    "destination": "SIN",
+    "duration_in_hours": 8
+  },
+  {
+    "departure": "SYD",
+    "destination": "IST",
+    "duration_in_hours": 16
+  },
+  {
+    "departure": "HND",
+    "destination": "HKG",
+    "duration_in_hours": 5
+  },
+  {
+    "departure": "HND",
+    "destination": "SFO",
+    "duration_in_hours": 11.5
+  },
+  {
+    "departure": "FRA",
+    "destination": "ORD",
+    "duration_in_hours": 9
+  },
+  {
+    "departure": "FRA",
+    "destination": "ATL",
+    "duration_in_hours": 10
+  },
+  {
+    "departure": "AMS",
+    "destination": "MIA",
+    "duration_in_hours": 9.5
+  },
+  {
+    "departure": "AMS",
+    "destination": "MAD",
+    "duration_in_hours": 2.5
+  },
+  {
+    "departure": "DXB",
+    "destination": "BCN",
+    "duration_in_hours": 7
+  },
+  {
+    "departure": "DXB",
+    "destination": "GRU",
+    "duration_in_hours": 14
+  },
+  {
+    "departure": "SIN",
+    "destination": "MEX",
+    "duration_in_hours": 16.5
+  },
+  {
+    "departure": "SIN",
+    "destination": "HKG",
+    "duration_in_hours": 3
+  },
+  {
+    "departure": "LAX",
+    "destination": "SFO",
+    "duration_in_hours": 1
+  },
+  {
+    "departure": "LAX",
+    "destination": "ORD",
+    "duration_in_hours": 4
+  },
+  {
+    "departure": "JFK",
+    "destination": "ATL",
+    "duration_in_hours": 2
+  },
+  {
+    "departure": "JFK",
+    "destination": "MIA",
+    "duration_in_hours": 3
+  },
+  {
+    "departure": "LHR",
+    "destination": "BCN",
+    "duration_in_hours": 2.5
+  },
+  {
+    "departure": "LHR",
+    "destination": "GRU",
+    "duration_in_hours": 12.5
+  },
+  {
+    "departure": "CDG",
+    "destination": "HKG",
+    "duration_in_hours": 11
+  },
+  {
+    "departure": "CDG",
+    "destination": "MEX",
+    "duration_in_hours": 13
+  },
+  {
+    "departure": "SYD",
+    "destination": "SIN",
+    "duration_in_hours": 8
+  },
+  {
+    "departure": "SYD",
+    "destination": "HND",
+    "duration_in_hours": 9
+  },
+  {
+    "departure": "HND",
+    "destination": "DXB",
+    "duration_in_hours": 8
+  },
+  {
+    "departure": "HND",
+    "destination": "FRA",
+    "duration_in_hours": 11
+  },
+  {
+    "departure": "FRA",
+    "destination": "AMS",
+    "duration_in_hours": 1.5
+  },
+  {
+    "departure": "FRA",
+    "destination": "SYD",
+    "duration_in_hours": 18
+  },
+  {
+    "departure": "AMS",
+    "destination": "HKG",
+    "duration_in_hours": 10
+  },
+  {
+    "departure": "AMS",
+    "destination": "GRU",
+    "duration_in_hours": 11
+  },
+  {
+    "departure": "DXB",
+    "destination": "SFO",
+    "duration_in_hours": 15
+  },
+  {
+    "departure": "DXB",
+    "destination": "ORD",
+    "duration_in_hours": 13
+  },
+  {
+    "departure": "SIN",
+    "destination": "ATL",
+    "duration_in_hours": 17.5
+  },
+  {
+    "departure": "SIN",
+    "destination": "MIA",
+    "duration_in_hours": 16
+  },
+  {
+    "departure": "LAX",
+    "destination": "BCN",
+    "duration_in_hours": 11
+  },
+  {
+    "departure": "LAX",
+    "destination": "MEX",
+    "duration_in_hours": 9
+  },
+  {
+    "departure": "JFK",
+    "destination": "HND",
+    "duration_in_hours": 13.5
+  },
+  {
+    "departure": "JFK",
+    "destination": "FRA",
+    "duration_in_hours": 8.5
+  },
+  {
+    "departure": "LHR",
+    "destination": "AMS",
+    "duration_in_hours": 1
+  },
+  {
+    "departure": "LHR",
+    "destination": "SYD",
+    "duration_in_hours": 19.5
+  }
+]

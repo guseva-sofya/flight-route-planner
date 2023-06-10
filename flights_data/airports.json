@@ -1,0 +1,82 @@
+[
+    {
+        "code": "LAX",
+        "full_name": "Los Angeles International Airport"
+    },
+    {
+        "code": "JFK",
+        "full_name": "John F. Kennedy International Airport"
+    },
+    {
+        "code": "LHR",
+        "full_name": "London Heathrow Airport"
+    },
+    {
+        "code": "CDG",
+        "full_name": "Paris Charles de Gaulle Airport"
+    },
+    {
+        "code": "SYD",
+        "full_name": "Sydney Airport"
+    },
+    {
+        "code": "HND",
+        "full_name": "Tokyo Haneda Airport"
+    },
+    {
+        "code": "FRA",
+        "full_name": "Frankfurt Airport"
+    },
+    {
+        "code": "AMS",
+        "full_name": "Amsterdam Airport Schiphol"
+    },
+    {
+        "code": "DXB",
+        "full_name": "Dubai International Airport"
+    },
+    {
+        "code": "SIN",
+        "full_name": "Singapore Changi Airport"
+    },
+    {
+        "code": "IST",
+        "full_name": "Istanbul Airport"
+    },
+    {
+        "code": "HKG",
+        "full_name": "Hong Kong International Airport"
+    },
+    {
+        "code": "SFO",
+        "full_name": "San Francisco International Airport"
+    },
+    {
+        "code": "ORD",
+        "full_name": "O'Hare International Airport"
+    },
+    {
+        "code": "ATL",
+        "full_name": "Hartsfield-Jackson Atlanta International Airport"
+    },
+    {
+        "code": "MIA",
+        "full_name": "Miami International Airport"
+    },
+    {
+        "code": "MAD",
+        "full_name": "Adolfo Suarez Madrid-Barajas Airport"
+    },
+    {
+        "code": "BCN",
+        "full_name": "Barcelona-El Prat Josep Tarradellas Airport"
+    },
+    {
+        "code": "GRU",
+        "full_name": "Sao Paulo-Guarulhos International Airport"
+    },
+    {
+        "code": "MEX",
+        "full_name": "Mexico City International Airport"
+    }
+]
