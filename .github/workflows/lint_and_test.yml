@@ -2,6 +2,9 @@ name: Run linters and tests on push
 
 on: ["push"]
 
+# jobs are run on runners - single-use computers. 
+# Before running any useful job steps,
+# we need to configure the python environment on the runner.
 jobs:
   lint-and-test:
     runs-on: ubuntu-latest
@@ -14,14 +17,14 @@ jobs:
         with:
           python-version: '3.9'
 
-      - name: Add conda to system path
-        run: |
-          echo $CONDA/bin >> $GITHUB_PATH
-          python --version
-          conda --version
-          conda init bash
-          conda activate base
-          conda env list
+      # - name: Add conda to system path
+      #   run: |
+      #     echo $CONDA/bin >> $GITHUB_PATH
+      #     python --version
+      #     conda --version
+      #     conda init bash
+      #     conda activate base
+      #     conda env list
 
       - name: Install poetry
         run: |
@@ -33,10 +36,10 @@ jobs:
         run: poetry install
       
       - name: Run mypy
-        run: mypy .
+        run: poetry run mypy .
 
       - name: Run pylint
-        run: pylint flight_route_planner tests
+        run: poetry run pylint flight_route_planner tests
 
       - name: Run unit tests
-        run: pytest tests
+        run: poetry run pytest tests
