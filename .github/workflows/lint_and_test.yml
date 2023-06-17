@@ -8,6 +8,32 @@ jobs:
     steps:
       # clones repository code into the job runner (ubuntu)
       - uses: actions/checkout@v3
+
+      - name: Set up python
+        uses: actions/setup-python@v3
+        with:
+          python-version: '3.9'
+
+      - name: Add conda to system path
+        run: |
+          echo $CONDA/bin >> $GITHUB_PATH
+          python --version
+          conda --version
+
+      - name: Install poetry
+        run: |
+          curl -sSL https://install.python-poetry.org | python3 -
+          export PATH="$HOME/.poetry/bin:$PATH"
+          poetry --version
+
+      - name: Install dependencies
+        run: poetry install
       
       - name: Run mypy
         run: mypy .
+
+      - name: Run pylint
+        run: pylint flight_route_planner tests
+
+      - name: Run unit tests
+        run: pytest tests
