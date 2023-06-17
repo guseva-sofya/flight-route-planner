@@ -19,6 +19,7 @@ jobs:
           echo $CONDA/bin >> $GITHUB_PATH
           python --version
           conda --version
+          conda activate base
           conda env list
 
       - name: Install poetry
