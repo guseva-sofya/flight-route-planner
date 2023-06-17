@@ -17,15 +17,9 @@ jobs:
         with:
           python-version: '3.9'
 
-      # - name: Add conda to system path
-      #   run: |
-      #     echo $CONDA/bin >> $GITHUB_PATH
-      #     python --version
-      #     conda --version
-      #     conda init bash
-      #     conda activate base
-      #     conda env list
-
+      # We don't use conda environments here because we only need a single
+      # environment to run the job. We will not need other environments, 
+      # so we can install all dependecies to the global python environment.
       - name: Install poetry
         run: |
           curl -sSL https://install.python-poetry.org | python3 -
