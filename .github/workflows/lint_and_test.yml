@@ -9,11 +9,5 @@ jobs:
       # clones repository code into the job runner (ubuntu)
       - uses: actions/checkout@v3
       
-      - name: Show current directory
-        run: pwd
-
-      - name: Show files in directory
-        run: ls
-      
-      - name: Step 2
-        run: echo "Hello, and this is step 2!"
+      - name: Run mypy
+        run: mypy .
