@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       # clones repository code into the job runner (ubuntu)
-       - uses: actions/checkout@v3
+      - uses: actions/checkout@v3
       
       - name: Show current directory
         run: pwd
