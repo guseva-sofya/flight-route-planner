@@ -1,4 +1,7 @@
-# How to install
+# flight-route-planner
+
+![build-lint-test-workflow](https://github.com/guseva-sofya/flight-route-planner/actions/workflows/lint_and_test.yml/badge.svg)
+## How to install
 
 First time only:
 1. Install miniconda (don't add to PATH)
