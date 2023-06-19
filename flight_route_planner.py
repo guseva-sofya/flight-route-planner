@@ -5,6 +5,18 @@ from flight_route_planner import flight_routes
 
 
 def main():
+    """Runs the flight route planner that uses graph algorithm (dijkstra's algorithm)
+       to find the shortest route between two airports.
+
+    Loads data from .json files: 20 airoport codes with full name and
+    the duration of the flights between different airports (40 flights).
+
+    Runs input where user selects two airports from the list: departure and destination.
+
+    Prints the sequence of the airport codes that corresponds to the shortest route.
+    Provides the total duration of the shortest route in hours.
+    """
+
     airports = load_airports()
     flights = load_flights()
 
