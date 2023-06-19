@@ -66,8 +66,8 @@ def prompt_airport_code_unit_valid(
         user_input = input(prompt_text)
         if user_input in airport_codes:
             return user_input
-        else:
-            print("Input value is not a valid airport code!")
+
+        print("Input value is not a valid airport code!")
 
 
 def print_fastest_route(fastest_route: flight_routes.Route) -> None:
@@ -80,7 +80,7 @@ def load_json_data(
 ) -> List[Any]:
     script_directory = os.path.dirname(os.path.abspath(__file__))
     absolute_file_path = os.path.join(script_directory, file_path)
-    with open(absolute_file_path, "r") as file:
+    with open(absolute_file_path, "r", encoding="utf-8") as file:
         json_data = file.read()
 
     loaded_objects = json.loads(json_data, object_hook=object_hook)
