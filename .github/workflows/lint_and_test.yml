@@ -33,7 +33,7 @@ jobs:
         run: poetry run mypy .
 
       - name: Run pylint
-        run: poetry run pylint flight_route_planner tests
+        run: poetry run pylint main.py flight_route_planner tests
 
       - name: Run unit tests
         run: poetry run pytest tests
