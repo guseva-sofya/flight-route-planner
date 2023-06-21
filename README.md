@@ -1,6 +1,17 @@
 # flight-route-planner
 
 ![build-lint-test-workflow](https://github.com/guseva-sofya/flight-route-planner/actions/workflows/lint_and_test.yml/badge.svg)
+
+## Introduction
+
+In this program I build a flight route planner that uses a graph algorithm (Dijkstra's algorithm) to find the shortest route between two airports. I implement algorithm creating classes, using the clean coding practices, unit testing and setting a CI/CD workflow on a GitHub.
+
+A simplified scheme of a bidirectional graph represents connections between the airports:
+
+![image info](graph.jpg)
+
+where, A &rarr; C &rarr; F &rarr; B - the fastest route between A and B. Numbers above the arrows indicate the weights (time in hours).
+
 ## How to install
 
 First time only:
