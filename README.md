@@ -8,7 +8,7 @@ In this program I build a flight route planner that uses a graph algorithm (Dijk
 
 A simplified scheme of a bidirectional graph represents connections between the airports:
 
-![image info](graph.jpg)
+![graph](images/graph.jpg)
 
 where, A &rarr; C &rarr; F &rarr; B - the fastest route between A and B. Numbers above the arrows indicate the weights (time in hours).
 
@@ -74,3 +74,7 @@ To update conda, run Anaconda Powershell Prompt from admnistrator.
  ```sh
 ./run_checks.sh
  ```
+
+ ## Materials used creating this project
+
+ 1. https://www.youtube.com/watch?v=pVfj6mxhdMw
