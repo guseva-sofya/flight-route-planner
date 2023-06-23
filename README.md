@@ -8,7 +8,7 @@ In this program I build a flight route planner that uses a graph algorithm (Dijk
 
 A simplified scheme of a bidirectional graph represents connections between the airports:
 
-![graph](https://github.com/guseva-sofya/flight-route-planner/images/graph_image.jpg)
+![graph](./images/graph_image.jpg)
 
 where, A &rarr; C &rarr; F &rarr; B - the fastest route between A and B. Numbers above the arrows indicate the weights (time in hours).
 
